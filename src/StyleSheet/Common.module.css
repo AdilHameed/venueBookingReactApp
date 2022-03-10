@@ -1,0 +1,58 @@
+.footer {
+  background-color: rgb(43, 42, 40);
+  color: rgb(255, 255, 255);
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 5px;
+}
+.paginationDisplay {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.searchForm {
+  width: 400px;
+}
+
+.headerProfile {
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.loginContainer {
+  margin-top: 144px;
+  margin-bottom: 145px;
+  border: 2px solid #ede9e8;
+  border-radius: 5px;
+}
+.pageHeight {
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+  .searchForm {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .productCard {
+    justify-self: center;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  .productCard {
+    margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .cartText {
+    font-size: 12px;
+  }
+}
