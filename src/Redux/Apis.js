@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://venue-booking-app-smoky.vercel.app" });
+const API = axios.create({ baseURL: "/api" });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
