@@ -68,7 +68,7 @@ const Login = () => {
         <Col xs={12} sm={3}></Col>
         <Col xs={12} sm={6}>
           <Container className={styles.loginContainer}>
-            <h2 className='text-center mt-1'>Login</h2>
+            <h2 className='text-center mt-1'>LoginX</h2>
             <Form className='mt-3 mb-3' onSubmit={handleSubmit}>
               <Form.Group className='mb-3  ' controlId='formBasicEmail'>
                 <Form.Label>Email address</Form.Label>
