@@ -71,7 +71,7 @@ const Login = () => {
             <h2 className='text-center mt-1'>LoginX</h2>
             <Form className='mt-3 mb-3' onSubmit={handleSubmit}>
               <Form.Group className='mb-3  ' controlId='formBasicEmail'>
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Email addressx</Form.Label>
                 <Form.Control
                   type='email'
                   placeholder='Enter email'

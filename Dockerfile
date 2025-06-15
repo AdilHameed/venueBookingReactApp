@@ -1,32 +1,23 @@
-# Build stage
-FROM node:18-alpine as build
+# ------------ Build Stage ------------
+    FROM node:18-alpine AS build
 
-# Set working directory
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy source code
-COPY . .
-
-# Build the app
-RUN npm run build
-
-# Production stage
-FROM nginx:alpine
-
-# Copy built assets from build stage
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Add nginx configuration (optional)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+    WORKDIR /app
+    
+    COPY package*.json ./
+    RUN npm install
+    
+    COPY . .
+    RUN npm run build
+    
+    # ------------ Production Stage ------------
+    FROM nginx:alpine
+    
+    COPY --from=build /app/build /usr/share/nginx/html
+    
+    # Required for React Router to work
+    COPY nginx.conf /etc/nginx/conf.d/default.conf
+    
+    EXPOSE 80
+    
+    CMD ["nginx", "-g", "daemon off;"]
+    

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "/api" });
+const API = axios.create({ baseURL: "http://v-booking-lb-1076235108.ap-south-1.elb.amazonaws.com/api" });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
@@ -12,33 +12,33 @@ API.interceptors.request.use((req) => {
 });
 
 // Authentication API
-export const login = (postData) => API.post("./user/login", postData);
-export const logOut = () => API.post("./user/logout");
-export const SignUp = (postData) => API.post("./user/signup", postData);
+export const login = (postData) => API.post("/user/login", postData);
+export const logOut = () => API.post("/user/logout");
+export const SignUp = (postData) => API.post("/user/signup", postData);
 
-//Venues API
-export const getAllVenues = () => API.get("./venue/fetchAllVenue");
-export const getAllVenuesByOwner = () => API.get("./venue/fetchVenueByOwner");
-export const getSinglevenueApi = (id) => API.get(`./venue/fetchVenue/${id}`);
-export const createVenueApi = (data) => API.post("./venue/addVenue", data);
+// Venues API
+export const getAllVenues = () => API.get("/venue/fetchAllVenue");
+export const getAllVenuesByOwner = () => API.get("/venue/fetchVenueByOwner");
+export const getSinglevenueApi = (id) => API.get(`/venue/fetchVenue/${id}`);
+export const createVenueApi = (data) => API.post("/venue/addVenue", data);
 export const updateVenueApi = (data, id) =>
-  API.patch(`./venue/editVenue/${id}`, data);
-export const deleteVenueApi = (id) => API.delete(`./venue/deleteVenue/${id}`);
+  API.patch(`/venue/editVenue/${id}`, data);
+export const deleteVenueApi = (id) => API.delete(`/venue/deleteVenue/${id}`);
 
-//Bookings API
+// Bookings API
 export const searchSlots = (id, date) =>
-  API.get(`./venueBooking/venue/${id}/availableSlots?date=${date}`);
+  API.get(`/venueBooking/venue/${id}/availableSlots?date=${date}`);
 export const getBookedSlotByUser = () =>
-  API.get("./venueBooking/fetchBookedSlotByUser");
+  API.get("/venueBooking/fetchBookedSlotByUser");
 export const getBookedSlotByOwner = (id) =>
-  API.get(`./venueBooking/fetchBookedSlotByVenue/${id}`);
+  API.get(`/venueBooking/fetchBookedSlotByVenue/${id}`);
 export const slotBooking = (id, data) =>
-  API.post(`./venueBooking/venue/${id}/bookSlot`, data);
+  API.post(`/venueBooking/venue/${id}/bookSlot`, data);
 export const updateBookingSlot = (data, id) =>
-  API.patch(`./venueBooking/bookSlot/${id}`, data);
+  API.patch(`/venueBooking/bookSlot/${id}`, data);
 export const bookingConfirmation = (id) =>
-  API.patch(`./venueBooking/bookSlot/${id}/confirmation`);
+  API.patch(`/venueBooking/bookSlot/${id}/confirmation`);
 export const bookingRejection = (id) =>
-  API.patch(`./venueBooking/bookSlot/${id}/rejection`);
+  API.patch(`/venueBooking/bookSlot/${id}/rejection`);
 export const removeBookedSot = (id) =>
-  API.delete(`./venueBooking/bookSlot/${id}`);
+  API.delete(`/venueBooking/bookSlot/${id}`);

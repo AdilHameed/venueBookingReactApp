@@ -83,7 +83,7 @@ const Venue = (props) => {
               )}
               <h5 className='card-title'>{props.venue.name}</h5>
 
-              <p className='card-text'>marriage, birthday, concert</p>
+              <p className='card-text'>marriage, birthday, concert, party</p>
               <p className='card-text'>
                 <small
                   style={{
